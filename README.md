@@ -3,7 +3,7 @@ Axaclip
 
 A Python based code snippet management tool
 
-Website: [http://projects.axatrikx.com]
+Website: [http://projects.axatrikx.com](http://projects.axatrikx.com)
 
 Details
 -----------
