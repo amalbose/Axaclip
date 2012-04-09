@@ -3,8 +3,8 @@ Created on Feb 20, 2012
 
 @author: axatrikx
 '''
-import axaclip
+from axaclip import *
 
-a = axaclip.axaclip()
+a = CodeSnip.CodeSnip("Download Website")
 
 

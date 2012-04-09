@@ -8,7 +8,7 @@ import time
 '''
 Axaclip class 
 '''
-class Axaclip:
+class CodeSnip:
     
     '''
     @param name: the name of the code snippet

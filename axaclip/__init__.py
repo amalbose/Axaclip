@@ -1,0 +1,3 @@
+import CodeSnip
+
+print "hi"
