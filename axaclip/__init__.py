@@ -1,3 +1,1 @@
 import CodeSnip
-
-print "hi"

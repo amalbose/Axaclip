@@ -3,36 +3,35 @@ Created on Feb 20, 2012
 
 @author: axatrikx
 '''
-
 import time
 '''
-Axaclip class 
+CodeSnip class 
 '''
 class CodeSnip:
-    
+    setValues()
     '''
     @param name: the name of the code snippet
     '''
-    def __init__(self,name):
-        self.name=name
-        self.__id=self.generate_ID()
+    def __init__(self, name):
+        self.name = name
+        self.__id = self.generate_ID()
         
-    '''
+    """
     sets the values for the axaclip class
     @param lang: the programming language
     @param url: the url for the snippet  
     @param description: a description for what the code does
     @param contents: the code contents
     @param keywords: a list of keyword strings 
-    '''
-    def setValues(self,lang,url,description,contents,*keywords):
-        self.__lang=lang
-        self.__url=url
-        self.__description=description
-        self.__contents=contents
-        self.__keywords=keywords
-        self.__dateCreated=time.asctime( time.localtime(time.time()) )
-    
+    """
+    def setValues(self, lang, url, description, contents, *keywords):
+        self.__lang = lang
+        self.__url = url
+        self.__description = description
+        self.__contents = contents
+        self.__keywords = keywords
+        self.__dateCreated = time.asctime(time.localtime(time.time()))
+        
     def generate_ID(self):
         return 1
     
