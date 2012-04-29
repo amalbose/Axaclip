@@ -5,4 +5,4 @@ Created on Feb 20, 2012
 '''
 from axaclip.Controller import addSnippet
 
-addSnippet("nrewName","language","description","content","url","keywords")
+addSnippet("name","PHP","description","content","url",("keywords","jj","Sd","d","Sdsd"))

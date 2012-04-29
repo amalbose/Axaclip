@@ -5,22 +5,24 @@ Created on Feb 20, 2012
 '''
 import time
 
+KEYBOARD_SEPERATOR=", "
+
 class CodeSnip:
 
     def __init__(self, name):
         self.__name = name
         self.__id = self.generate_ID()
         self.__lang = self.__url = self.__description = \
-            self.__contents = self.__keywords = self.__dateCreated = "DEFAULT"
+            self.__contents = self.__keywords = self.__dateCreated = ""
         
         
-    def setValues(self, lang, url, description, contents, keywords):
+    def setValues(self, lang, url, description, contents, keywords=(("",""),)):
         self.__lang = lang
         self.__url = url
         self.__description = description
         self.__contents = contents
-        self.__keywords = keywords
-        #self.__dateCreated = time.asctime( time.localtime(time.time()) )
+        self.__keywords = KEYBOARD_SEPERATOR.join(keywords)
+        self.__dateCreated = time.asctime( time.localtime(time.time()) )
         
     def generate_ID(self):
         return 1

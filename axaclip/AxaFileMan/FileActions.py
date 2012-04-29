@@ -8,9 +8,11 @@ editing and deleting existing files.
 
 '''
 
-import os,sys
+import os
+from distutils.dir_util import *
 
 def createFile(fileName,fileContent):
+    "Creates file with the given contents"
     prepareDirectory(fileName)
     try:
         fileHandle = open(fileName,"w")
@@ -18,26 +20,41 @@ def createFile(fileName,fileContent):
             fileHandle.write(fileContent)
         finally:
             fileHandle.close()
-    except IOError,e:
-        print e
+    except IOError:
         return False
     return True
     
 def editFile(fileName,fileContent):
-    fileHandle = open(fileName,"a")
-    fileHandle.write(fileContent)
-    fileHandle.close()
+    "Replaces the contents of the file with the given contents"
+    try:
+        fileHandle = open(fileName, "a")
+        try:
+            fileHandle.write(fileContent)
+        finally:
+            fileHandle.close()
+    except IOError:
+        return False
+    return True
     
 def readFile(fileName):
-    fileHandle = open(fileName,"r")
-    return fileHandle.readlines()
+    "Reads and returns the contents as String"
+    try:
+        fileHandle = open(fileName, "r")
+        try:
+            contents = fileHandle.readlines()
+        finally:
+            fileHandle.close()
+    except IOError:
+        return False
+    return contents
     
 def removeFile(fileName):
+    "Deletes the file"
     os.remove(fileName)
     
 
 def prepareDirectory(fileName):
-    directory = fileName.split("/")[0]
+    "Creates directory if not present"
+    directory = "/".join(fileName.split("/")[:-1])
     if not os.path.exists(directory):
-        print directory
-        os.mkdir(directory)
+        mkpath(directory)
