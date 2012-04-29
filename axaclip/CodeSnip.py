@@ -4,23 +4,16 @@ Created on Feb 20, 2012
 @author: axatrikx
 '''
 import time
-'''
-CodeSnip class 
-'''
+
 class CodeSnip:
-    '''
-    @param name: the name of the code snippet '''
+
     def __init__(self, name):
         self.__name = name
         self.__id = self.generate_ID()
+        self.__lang = self.__url = self.__description = \
+            self.__contents = self.__keywords = self.__dateCreated = ""
         
-    """
-    sets the values for the axaclip class
-    @param lang: the programming language
-    @param url: the url for the snippet  
-    @param description: a description for what the code does
-    @param contents: the code contents
-    @param keywords: a list of keyword strings """
+        
     def setValues(self, lang, url, description, contents, *keywords):
         self.__lang = lang
         self.__url = url
@@ -31,9 +24,7 @@ class CodeSnip:
         
     def generate_ID(self):
         return 1
-    
-
-    
+        
     def get_name(self):
         return self.__name
 
@@ -92,9 +83,10 @@ class CodeSnip:
     def set_date_created(self, value):
         self.__dateCreated = value
     
-    def writeToFile(self):
-        fullPath = "path to file" + self.__name     #TODO
-        open(self.__name,"r")
+    def toFileString(self):
+        return "\n".join([self.get_name(),self.get_lang(),self.get_description(),
+                                 self.get_contents(),self.get_keywords(),self.get_url(),
+                                 self.get_date_created()])
         
 
 

@@ -12,6 +12,6 @@ The details of the project:
 
 * A tool for storing code snippets in different languages with feature to search and sort bases on keywords
 
-* Written in Python 3
+* Written in Python 2.7 using PySide library
 
 (Under Construction)
