@@ -8,16 +8,18 @@ editing and deleting existing files.
 
 '''
 
-import os
+import os,sys
 
 def createFile(fileName,fileContent):
+    prepareDirectory(fileName)
     try:
         fileHandle = open(fileName,"w")
         try:
             fileHandle.write(fileContent)
         finally:
             fileHandle.close()
-    except IOError:
+    except IOError,e:
+        print e
         return False
     return True
     
@@ -32,3 +34,10 @@ def readFile(fileName):
     
 def removeFile(fileName):
     os.remove(fileName)
+    
+
+def prepareDirectory(fileName):
+    directory = fileName.split("/")[0]
+    if not os.path.exists(directory):
+        print directory
+        os.mkdir(directory)

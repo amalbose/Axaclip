@@ -3,8 +3,6 @@ Created on Feb 20, 2012
 
 @author: axatrikx
 '''
-from axaclip import *
+from axaclip.Controller import addSnippet
 
-a = CodeSnip.CodeSnip("Download Website")
-
-
+addSnippet("nrewName","language","description","content","url","keywords")
