@@ -1,8 +1,15 @@
 '''
+
+Dummy Module
+
 Created on Feb 20, 2012
 
 @author: axatrikx
 '''
-from axaclip.Controller import addSnippet
+from axaclip.controller import Controller
 
-addSnippet("name","PHP","description","content","url",("keywords","jj","Sd","d","Sdsd"))
+FOLDER = "Snippets/"
+
+controllerObj = Controller(FOLDER)
+controllerObj.addSnippet("namse","jAVA","description","public static void main(String a[])\n {}",
+                         "url",("keywords","jj","Sd","d","Sdsd"))

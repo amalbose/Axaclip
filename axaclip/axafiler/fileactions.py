@@ -7,13 +7,13 @@ Perform file actions like creating new file, reading,
 editing and deleting existing files.
 
 '''
-
-import os
-from distutils.dir_util import *
+from os import remove
+from os.path import exists
+from distutils.dir_util import mkpath
 
 def createFile(fileName,fileContent):
     "Creates file with the given contents"
-    prepareDirectory(fileName)
+    _prepareDirectory(fileName)
     try:
         fileHandle = open(fileName,"w")
         try:
@@ -50,11 +50,12 @@ def readFile(fileName):
     
 def removeFile(fileName):
     "Deletes the file"
-    os.remove(fileName)
+    remove(fileName)
     
 
-def prepareDirectory(fileName):
+def _prepareDirectory(fileName):
     "Creates directory if not present"
+    #removes the file rename and retains the folder path
     directory = "/".join(fileName.split("/")[:-1])
-    if not os.path.exists(directory):
+    if not exists(directory):
         mkpath(directory)
