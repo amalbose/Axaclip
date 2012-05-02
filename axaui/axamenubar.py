@@ -8,13 +8,16 @@ from PySide.QtGui import QMenuBar
 from PySide.QtGui import QAction
 
 class AxaMenuBar(QMenuBar):
+    """The menu bar class for AxaClip. Creates and adds various
+    menus and their actions.
+    """
     def __init__(self, parent=None):
         super(AxaMenuBar,self).__init__(parent)
+        self._initUI(parent)
         
-        #creating actions
-        
+    def _initUI(self,parent):
+        "Adds the menu items into the menu bar"
         #File Menu
-        
         #add action
         _addAction = QAction("Add Snippet", parent)
         _addAction.setShortcut("Ctrl+N")
@@ -41,8 +44,11 @@ class AxaMenuBar(QMenuBar):
         _fileMenu.addAction(_exitAction)
         
         #Edit Menu
-        
+        #copy action
         _copyAction = QAction("&Copy", parent)
+        _copyAction.setShortcut("Ctrl+C")
+        _copyAction.setStatusTip('Copy text')
+        
         _editMenu = self.addMenu('&Edit')
         _editMenu.addAction(_copyAction)
         
